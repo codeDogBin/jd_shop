@@ -12,5 +12,4 @@ public class Test {
         JdUser abc = jdUserService.login("BCD", "123123");
         System.out.println(abc);
     }
-
 }
