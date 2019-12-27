@@ -15,9 +15,9 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
 
         <!--
-        <plugin type="${mapper.plugin}">
-            <property name="mappers" value="${mapper.Mapper}"/>
-            <property name="forceAnnotation" value="${mapper.forceAnnotation}" />
+        <plugin type="${com.bin.mapper.plugin}">
+            <property name="mappers" value="${com.bin.mapper.Mapper}"/>
+            <property name="forceAnnotation" value="${com.bin.mapper.forceAnnotation}" />
         </plugin>
         -->
 

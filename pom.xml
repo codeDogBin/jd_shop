@@ -173,34 +173,54 @@
       <artifactId>druid</artifactId>
       <version>1.1.10</version>
     </dependency>
-
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.mybatis.generator</groupId>
-        <artifactId>mybatis-generator-maven-plugin</artifactId>
-        <version>1.3.6</version>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>8.1.9.v20130131</version>
         <configuration>
-          <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
-          <overwrite>true</overwrite>
-          <verbose>true</verbose>
+          <contextXml>${project.basedir}/src/test/resources/jetty-context.xml</contextXml>
+          <connectors>
+            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+              <port>8080</port>
+            </connector>
+          </connectors>
+          <webAppConfig>
+            <contextPath>/</contextPath>
+          </webAppConfig>
+          <scanIntervalSeconds>5000</scanIntervalSeconds>
+          <stopKey>foo</stopKey>
+          <stopPort>7878</stopPort>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version>
-          </dependency>
-          <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.5</version>
-          </dependency>
-        </dependencies>
       </plugin>
+
+      <!--<plugin>-->
+        <!--<groupId>org.mybatis.generator</groupId>-->
+        <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+        <!--<version>1.3.6</version>-->
+        <!--<configuration>-->
+          <!--<configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>-->
+          <!--<overwrite>true</overwrite>-->
+          <!--<verbose>true</verbose>-->
+        <!--</configuration>-->
+        <!--<dependencies>-->
+          <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.46</version>-->
+          <!--</dependency>-->
+          <!--<dependency>-->
+            <!--<groupId>org.mybatis</groupId>-->
+            <!--<artifactId>mybatis</artifactId>-->
+            <!--<version>3.4.5</version>-->
+          <!--</dependency>-->
+        <!--</dependencies>-->
+      <!--</plugin>-->
     </plugins>
+
     <finalName>jd_shop</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -233,7 +253,6 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
-
       </plugins>
     </pluginManagement>
   </build>
