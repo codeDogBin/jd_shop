@@ -17,19 +17,19 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
-	<!--导入配置文件-->
-	<context:property-placeholder location="datasource.properties"></context:property-placeholder>
+	<!--&lt;!&ndash;导入配置文件&ndash;&gt;-->
+	<!--<context:property-placeholder location="datasource.properties"></context:property-placeholder>-->
 	<!--Mybatis配置-->
 	<!--  创建DataSource -->
 	<bean  id="dataSource"  class="com.alibaba.druid.pool.DruidDataSource">
-           <!--<property name="driverClassName"  value="com.mysql.jdbc.Driver"></property>-->
-           <!--<property name="url"  value="jdbc:mysql://127.0.0.1:3306/esms?characterEncoding=utf8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull"></property>-->
-           <!--<property name="username"  value="root"></property>-->
-           <!--<property name="password" value="root"></property>-->
-		<property name="driverClassName"  value="${jdbc.driverClass}"></property>
-		<property name="url"  value="${jdbc.jdbcUrl}"></property>
-		<property name="username"  value="${jdbc.password}"></property>
-		<property name="password"  value="${jdbc.user}"></property>
+           <property name="driverClassName"  value="com.mysql.jdbc.Driver"></property>
+           <property name="url"  value="jdbc:mysql://127.0.0.1:3306/esms?characterEncoding=utf8&amp;useSSL=false&amp;zeroDateTimeBehavior=convertToNull"></property>
+           <property name="username"  value="root"></property>
+           <property name="password" value="root"></property>
+		<!--<property name="driverClassName"  value="${jdbc.driverClass}"></property>-->
+		<!--<property name="url"  value="${jdbc.jdbcUrl}"></property>-->
+		<!--<property name="username"  value="${jdbc.password}"></property>-->
+		<!--<property name="password"  value="${jdbc.user}"></property>-->
        </bean>
 
 	   <!--  配置SqlSessionFactoryBean  -->

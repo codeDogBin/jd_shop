@@ -13,4 +13,9 @@ public class JdUserController {
     public String toHello(){
         return "hello";
     }
+    @RequestMapping("toLogin")
+    public String toLogin(){
+        return "login";
+    }
+
 }
