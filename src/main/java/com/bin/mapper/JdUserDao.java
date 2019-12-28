@@ -7,5 +7,5 @@ public interface JdUserDao {
 
     JdUser findUser(@Param("login_name") String login_name,
                     @Param("password") String password);
-
+    int insertUser(JdUser jdUser);
 }

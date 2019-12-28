@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,9 +7,24 @@
 <link rel="stylesheet" type="text/css" href="css/book.css" />
 <link rel="stylesheet" type="text/css" href="css/sign.css" />
 <link type="text/css" rel="stylesheet" href="css/delete_order_style.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#button").click(
+                function () {
+                    console.log("1");
+                    if($("#password").val() != $("#repassword").val()){
+                        alert("两次密码不一致");
+                        return;
+                    }
+                    $("#register_form").submit();
+                }
+            )
+        })
+    </script>
 </head>
 <body>
-<div id="bodyPart">		
+<div id="bodyPart1">
 	<!--头部导航开始-->
 <%@include file="head1.jsp"%>
 
@@ -27,35 +42,35 @@
         
         <div class="register_content">
             <div class="clear"></div>
-           <form action="registerOk.jsp" method="post">
+           <form id="register_form" action="register" method="post">
            	<div class="user_form"> 
                 <div class="uInfo">
                 	<span class="label">用户名：</span>
-                    <input type="text" class="text" />
+                    <input type="text" name="loginName" class="text" />
                 </div>
                 <div class="uInfo">
                 	<span class="label">设置密码：</span>
-                    <input type="password"  class="text" />
+                    <input type="password"  name="password" id="password" class="text" />
                 </div> 
                 <div class="uInfo">
                 	<span class="label">确认密码：</span>
-                    <input type="password" class="text"  />
+                    <input type="password" name="repassword" id="repassword" class="text"  />
                 </div>
                 <div class="uInfo">
                 	<span class="label">邮箱：</span>
-                    <input type="text" class="text"  />  
+                    <input type="text"  name="email" class="text"  />
                 </div> 
                 <div class="uInfo">
                 	<span class="label">推荐人用户名：</span>
-                    <input type="text" class="text"  />
+                    <input type="text" name="recommender" class="text"  />
                 </div>
                 <div class="uInfo">
                 	<span class="label">验证码：</span>
-                    <input type="text" id="code" /><img src="images/check_code.jpeg" />    <font>看不清？</font><a href="#">换一张</a>
+                    <input type="text"  id="code" /><img src="images/check_code.jpeg" />    <font>看不清？</font><a href="#">换一张</a>
                 </div>
                 <div class="uInfo">
                 	<span class="label">&nbsp;</span>
-                    <input type="submit" id="button" value="同意以下协议，提交"/>
+                    <input type="button" id="button" value="同意以下协议，提交"/> ${msg}
                 </div>
             </div>     
             </form>
@@ -100,5 +115,6 @@
 	<!--头部导航开始-->
 <%@include file="footer1.jsp"%>
 </div>
+
 </body>
 </html>

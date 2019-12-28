@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,6 +8,12 @@
 <link rel="stylesheet" type="text/css" href="css/sign.css" />
 <link type="text/css" rel="stylesheet" href="css/delete_order_style.css"/>
 <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function login() {
+            //提交登陆的表单
+            $("#login_form").submit();
+        }
+    </script>
 </head>
 <body>
 <!--快捷访问栏开始-->
@@ -24,12 +30,12 @@
         </div>
         <div class="login_form">
         	<div class="form">
-			<form id="login_form" action="" method="post">
+			<form id="login_form" action="/login" method="post">
              	<div class="form_info">
-                	<div class="label">用户名：</div><input type="text"   class="text"/>
+                	<div class="label">用户名：</div><input type="text"  name="loginName"  class="text"/>
                 </div>
              	<div class="form_info">
-                	<div class="label">密码：</div><input type="password"  class="text"/>
+                	<div class="label">密码：</div><input type="password" name="password" class="text"/>
                 </div>
                 <div class="form_info">
                 	<div class="label">&nbsp;</div>
@@ -37,7 +43,7 @@
                 </div>
                 <div class="form_info">
                 	<div class="label">&nbsp;</div>
-                	<a href="#"><img id="login_btn" src="images/login.jpeg" /></a>
+                	<a href="#" onclick="login()"><img id="login_btn" src="images/login.jpeg" /></a>${msg}
                 </div>
                 <div class="cor_web">
                     使用合作网站账号登录京东：<br />
@@ -51,7 +57,7 @@
 				<div class="guide_content">
                 	现在免费注册成为京东商城用户，便能立刻享受便宜又放心的购物乐趣。
                 </div>
-                <div id="new_register"><a href="register.jsp"><img src="images/new_reg.jpeg" /></div>
+                <div id="new_register"><a href="/toRegister"><img src="images/new_reg.jpeg" /></a> </div>
 				<!--<div id="other_register"><a href="#">企业用户注册</a>   <a href="#">校园用户注册</a></div>-->
             </div>
         </div>

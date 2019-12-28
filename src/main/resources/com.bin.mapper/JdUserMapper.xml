@@ -5,6 +5,10 @@
 <mapper namespace="com.bin.mapper.JdUserDao">
 	<!-- 定义SQL语句 -->
     <select id="findUser" resultType="com.bin.bean.JdUser">
-        select * from jd_user where login_name =#{login_name} and password = #{password};
+        select * from jd_user where login_name = #{login_name} and password = #{password};
     </select>
+
+    <insert id="insertUser" parameterType="com.bin.bean.JdUser">
+        insert into jd_user(login_name,password,email,recommender) values(#{loginName},#{password},#{email},#{recommender});
+    </insert>
 </mapper>

@@ -8,7 +8,7 @@
 #book_sort{margin-bottom:10px;}
 .sort_title{background:url("../images/bg_tit_book.jpg") no-repeat 0px 0px;height:24px;line-height:24px;color:#663300;padding:2px 8px;overflow:hidden;}
 h2{font-size:14px;}
-.sort_list{border:1px solid #F6A65B;border-top:none;padding:4px 4px 0px 4xp;}
+.sort_list{border:1px solid #F6A65B;border-top:none;padding:4px 4px 0px 4px;}
 .sort_list .item h3 .dot{background:url(../images/cate_dot.jpg) no-repeat;padding-left:10px;}
 .sort_list .item{position:relative;}
 .sort_list .item h3{border-bottom:1px solid #FFE2E2;
@@ -114,7 +114,7 @@ h2{font-size:14px;}
 #new_books .tab li{background:url("../images/bg_icon.gif") #999999 no-repeat -47px -12px;width:12px;text-align:center;height:13px;margin-right:5px;color:#FFFFFF;line-height:12px;float:left;}
 #new_books .tab li.curr{background-position:-60px -12px;background-color:#ff9900;width:15px;color:#FFFFFF;}
 .book_content{padding:0 2px;width:540px;overflow:hidden;}
-.pic_list li{width:134px;float:left;border:}
+.pic_list li{width:134px;float:left;border:1px solid #f40}
 .pic_list .pic_name{font-weight:bold;height:18px;margin-bottom:5px;overflow:hidden;padding-left:20px;}
 .pic_list .pic_name a{color: #99CC33;text-decoration:underline;}
 .pic_book{background:url("../images/book_shadow.jpg") no-repeat 0 120px;
@@ -140,8 +140,8 @@ h2{font-size:14px;}
 /*主题馆*/
 #gallery{margin-bottom:10px;}
 #gallery .book_tit{background:url("../images/bg_gallery.jpg") #cccccc repeat-x 0 0;height:36px;margin-bottom:0;border-bottom:none;}
-#gallery .book_tit h2{float:left;height:32px;padding:4px 0 0 8px;background:url(i/bg_gallery.jpg) no-repeat -31px -37px;bottom:0;}
-#gallery .tab{float:right;width:460px;height:36px;background:url(i/bg_gallery.jpg) no-repeat 450px -37px;}
+#gallery .book_tit h2{float:left;height:32px;padding:4px 0 0 8px;background:url("../images/bg_gallery.jpg") no-repeat -31px -37px;bottom:0;}
+#gallery .tab{float:right;width:460px;height:36px;background:url("../images/bg_gallery.jpg") no-repeat 450px -37px;}
 #gallery .tab li{height:14px;padding:11px 0;line-height:14px;float:left;}
 #gallery .tab .curr{font-weight:bold;background:url("../images/bg_gallery.jpg") no-repeat center -73px;}
 #gallery .tab a{padding:0 9px;border-left:1px solid #666;color:#666666;}
@@ -227,7 +227,7 @@ height:32px;}
 .rank .p-name{float:left;width:120px;height:18px;line-height:18px;overflow:hidden;}
 .rank .fore{border-top:none;width:197px;padding-left:3px;}
 .rank .fore span{width:17px;height:20px;margin-right:3px;background-position:-19px -28px;line-height:50px;}
-.rank .extra{line-height:32px;float:right;border-top:1px solid #EFEFEF;margin:2 2px;padding:4px 5px;text-align:right;width:110px;}
+.rank .extra{line-height:32px;float:right;border-top:1px solid #EFEFEF;margin:2px 2px;padding:4px 5px;text-align:right;width:110px;}
 #new_sale{border:1px solid #cccccc;overflow:hidden;width:209px;margin-top:12px;}
 #new_sale .book_tit{overflow:hidden;background:url("../images/bg_gallery.jpg") repeat-x 0 -111px;height:32px;border:none;}
 #new_sale h2{padding-left:32px;background:url("../images/bg_tit.gif") no-repeat -5px -66px;}
