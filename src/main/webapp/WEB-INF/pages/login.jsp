@@ -30,7 +30,7 @@
         </div>
         <div class="login_form">
         	<div class="form">
-			<form id="login_form" action="/login" method="post">
+			<form id="login_form" action="login.do" method="post">
              	<div class="form_info">
                 	<div class="label">用户名：</div><input type="text"  name="loginName"  class="text"/>
                 </div>

@@ -37,12 +37,12 @@
     <div id="register">
     	<div class="register_tit">
         	<h2>注册新用户</h2><b></b>
-            <span>我已经注册，现在就 <a href="login.jsp" style="color: #005AA0;">登录</a> </span>
+            <span>我已经注册，现在就 <a href="/toLogin" style="color: #005AA0;">登录</a> </span>
         </div>
         
         <div class="register_content">
             <div class="clear"></div>
-           <form id="register_form" action="register" method="post">
+           <form id="register_form" action="register.do" method="post">
            	<div class="user_form"> 
                 <div class="uInfo">
                 	<span class="label">用户名：</span>

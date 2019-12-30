@@ -5,6 +5,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="css/logout_style.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+	var t = $(function () {
+			setInterval(function () {
+				var tid = parseInt($("#tid").html());
+				tid--;
+				$("#tid").html(tid);
+				if(tid==0){
+				clearInterval(t);
+				window.location.href="toLogin";
+				}
+			},1000)
+		});
+	</script>
 </head>
 <body>
 <div class="succeed">
@@ -28,10 +42,10 @@
 				
 				<tr>
 					<td colspan="2" align="center">
-						<font color="#999999"><strong>3</strong>&nbsp;秒后自动返回&nbsp;<a href="index.jsp">登录页面</a>，请稍候...</font></td>
+						<font color="#999999"><strong id="tid">3</strong>&nbsp;秒后自动返回&nbsp;<a href="toLogin">登录页面</a>，请稍候...</font></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="right">
+					<td colspan="2"  align="right">
 						<img src="img/logo2.jpg" height="46" width="167"/></td>
 				</tr>
 			</tbody>

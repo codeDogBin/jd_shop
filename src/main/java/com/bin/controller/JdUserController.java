@@ -32,7 +32,7 @@ public class JdUserController {
   * @param password 
   * @return java.lang.String        
   */
-    @RequestMapping("/login")
+    @RequestMapping("/login.do")
     public String login(String loginName, String password, HttpServletRequest request){
         password = Md5Util.md5StrAndSalt(password,loginName);
         JdUser jdUser = jdUserService.login(loginName, password);
@@ -49,7 +49,7 @@ public class JdUserController {
      * @param null
      * @return
      */
-     @RequestMapping("/register")
+     @RequestMapping("/register.do")
     public String register(JdUser jdUser ,HttpServletRequest request){
          jdUser.setPassword(Md5Util.md5StrAndSalt(jdUser.getPassword(),jdUser.getLoginName()));
          boolean rs = jdUserService.insertOne(jdUser);
