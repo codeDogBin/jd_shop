@@ -1,6 +1,8 @@
 package com.bin.controller;
 
+import com.bin.bean.JdCategory;
 import com.bin.bean.JdUser;
+import com.bin.service.JdCategoryService;
 import com.bin.service.JdUserService;
 import com.bin.utils.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class JdUserController {
     @Autowired
     private JdUserService jdUserService;
+    @Autowired
+    private JdCategoryService jdCategoryService;
+
     @RequestMapping("/toHello")
     public String toHello(){
         return "hello";
@@ -38,6 +44,8 @@ public class JdUserController {
         JdUser jdUser = jdUserService.login(loginName, password);
         if(jdUser != null){
             request.getSession().setAttribute("jdUser",jdUser);
+            List<JdCategory> jdCategories = jdCategoryService.FindSubCategoriesByParentId(1);
+            request.setAttribute("jdCategories",jdCategories);
             return "book";
         }
         request.setAttribute("msg","登陆失败");
@@ -59,7 +67,5 @@ public class JdUserController {
         }
         return "registerOk";
     }
-
-
 
 }

@@ -1,4 +1,5 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -76,114 +77,11 @@
             	<h2>图书分类</h2>
             </div>
             <div class="sort_list">
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot"> 小说</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">文学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">青春文学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">传记</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">艺术</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">少儿</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">经济</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">金融与投资</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">管理</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">励志与成功</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='book_list.jsp' class="dot">生活</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">健身与保健</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">家庭与育儿</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">旅游</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">动漫/幽默</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">历史</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">哲学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">国学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">政治/军事</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">法律</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">宗教</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">心理学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">文化</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">社会科学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">科技</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">工程</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">建筑</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">医学</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">科学与自然</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">计算机与互联网</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">体育/运动</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">教材教辅</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">教育与考试</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">外语学习</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">新闻出版</a></h3>
-                </div>
-                <div class='item'>
-                	<h3><b>&gt;</b><a href='#' class="dot">语言文字</a></h3>
-                </div>
+				<c:forEach items="${jdCategories}" var="jdCategory">
+					<div class='item'>
+						<h3><b>&gt;</b><a href='/toBookList?parent_id=${jdCategory.categoryId}' class="dot"> ${jdCategory.name}</a></h3>
+					</div>
+				</c:forEach>
             </div>          
         </div>
         

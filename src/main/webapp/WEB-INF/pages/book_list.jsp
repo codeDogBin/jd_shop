@@ -34,33 +34,11 @@
 			<div class="book_tit" style="width:209px;"><h2>浏览同级分类<br /><span>Browse other categories</span></h2></div>
 				<div class="book_content">
 					<ul>
-                        <li><a href='#'>中国当代小说</a></li>
-                        <li><a href='#'>中国近现代小说</a></li>
-                        <li><a href='#'>中国古典小说</a></li>
-                        <li><a href='#'>四大名著</a></li>
-                        <li><a href='#'>港澳台小说</a></li>
-                        <li><a href='#'>网络小说</a></li>
-                        <li><a href='#'>外国小说</a></li>
-                        <li><a href='#'>侦探/悬疑/推理</a></li>
-                        <li><a href='#'>惊悚/恐怖</a></li>
-                        <li><a href='#'>魔幻/奇幻/玄幻</a></li>
-                        <li><a href='#'>军事</a></li>
-                        <li><a href='#'>武侠</a></li>
-                        <li><a href='#'>情感/家庭/婚姻</a></li>
-                        <li><a href='#'>宫廷</a></li>
-                        <li><a href='#'>社会</a></li>
-                        <li><a href='#'>都市</a></li>
-                        <li><a href='#'>乡土</a></li>
-                        <li><a href='#'>职场</a></li>
-                        <li><a href='#'>财经</a></li>
-                        <li><a href='#'>官场</a></li>
-                        <li><a href='#'>历史</a></li>
-                        <li><a href='#'>影视小说</a></li>
-                        <li><a href='#'>作品集</a></li>
-                        <li><a href='#'>世界名著</a></li>
-                        <li><a href='#'>期刊杂志</a></li>
-                        <li><a href='#'>综合</a></li>
-                        <li><a href='#'>名人A-Z</a></li>
+                        <c:forEach items="${jdCategories}" var="jdCategoty">
+                            <li><a href='#'>${jdCategoty.name}</a></li>
+                        </c:forEach>
+
+
 					</ul>
                     <div class="clear"></div>
 					<div class="extra"><a href="#">返回上级分类&gt;&gt;</a></div>
@@ -77,7 +55,7 @@
                 </div>
                 <div class="book_text">
                     <div class="book_name"><a href="bookDetail.jsp" target="_blank"><font color="#FF0000">《古炉》（贾平凹）</font></a></div>
-                    <div class="book_intr">　　《<古炉>（贾平凹）》的故事发生在陕西一个叫“古...</div>
+                    <div class="book_intr">　　《古炉（贾平凹）》的故事发生在陕西一个叫“古... </div>
                     <div class="book_more"><a href="#" target="_blank">深度了解&gt;&gt;</a></div>
                 </div>	
 			</div>
@@ -87,7 +65,7 @@
                 </div>
                 <div class="book_text">
                     <div class="book_name"><a href="bookDetail.jsp" target="_blank"><font color="#FF0000">《古炉》（贾平凹）</font></a></div>
-                    <div class="book_intr">　　《<古炉>（贾平凹）》的故事发生在陕西一个叫“古...</div>
+                    <div class="book_intr">　　《古炉（贾平凹）》的故事发生在陕西一个叫“古...</div>
                     <div class="book_more"><a href="#" target="_blank">深度了解&gt;&gt;</a></div>
                 </div>	
 			</div>
@@ -97,7 +75,7 @@
                 </div>
                 <div class="book_text">
                     <div class="book_name"><a href="bookDetail.jsp" target="_blank"><font color="#FF0000">《古炉》（贾平凹）</font></a></div>
-                    <div class="book_intr">　　《<古炉>（贾平凹）》的故事发生在陕西一个叫“古...</div>
+                    <div class="book_intr">　　《古炉（贾平凹）》的故事发生在陕西一个叫“古...</div>
                     <div class="book_more"><a href="#" target="_blank">深度了解&gt;&gt;</a></div>
                 </div>	
 			</div>

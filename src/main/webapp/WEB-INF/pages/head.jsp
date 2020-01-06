@@ -1,11 +1,18 @@
-<%@ page contentType="text/html;charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" type="text/css" href="css/head.css" />
 <!--快捷访问栏开始-->
 <div id="shortcut">
 	<div class="page_width">
 		<ul>
-			<li class="welcome">您好！欢迎来到京东商城！<span><a href="login.jsp">[请登录]</a>，新用户？<a href="register.jsp" class="link_reg">[免费注册]</a></span></li>
+			<li class="welcome">您好！欢迎来到京东商城！<span>
+				<c:if test="${jdUser!= null}">
+					<a href="#">${jdUser.loginName}</a>
+				</c:if>
+				<c:if test="${jdUser == null}">
+				<a href="/toLogin">[请登录]</a>，新用户？<a href="/toRegister" class="link_reg">[免费注册]</a></span></li>
+				</c:if>
 			<li class="my_order"><a href="orderList.jsp">我的订单</a></li>
 			<li><a href="userHome.jsp">我的京东</a></li>
 			<li><a href="myCart.jsp">我的购物车</a></li>
