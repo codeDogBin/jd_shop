@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +6,10 @@
 <title>京东商城 - 图书频道首页</title>
 <link rel="stylesheet" type="text/css" href="css/book.css" />
 <link rel="stylesheet" type="text/css" href="css/book_list.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body id="book">
 <!--快捷访问栏开始-->
@@ -37,8 +41,6 @@
                         <c:forEach items="${jdCategories}" var="jdCategoty">
                             <li><a href='#'>${jdCategoty.name}</a></li>
                         </c:forEach>
-
-
 					</ul>
                     <div class="clear"></div>
 					<div class="extra"><a href="#">返回上级分类&gt;&gt;</a></div>
@@ -113,173 +115,34 @@
         <div class="clear"></div>
         
         <div class="product_list">
+            <c:forEach items="${products}" var="product">
         	<div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_62.jpg" /></a></div>
+            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="${product.picture}" /></a></div>
                 <div class="pro_info">
                 	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
+                    	<div class="bookName"><a href="bookDetail.jsp">${product.name}</a></div>
+                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>${product.author}</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
                     </div>
                     <div class="pro_down">
                     	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
+                    	出版时间：${product.publishTime}<br />
+                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>${product.fixedPrice}</s>
                         </div>
                         <div class="pro_right">
                         顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
+                        销量：<b><font>${product.printInt}</font></b><span class="user_price"></span>
+                            京东价：<b>${product.lowerPrice}</b>（43折)
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="book_btn">
                     <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
                     </div>
-                </div>            
-            </div>     
-            
-             <div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_63.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
+                </div>
             </div>
+            </c:forEach>
             
-            <div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_64.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
-            </div> 
-            
-            <div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_62.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
-            </div> 
-            
-            <div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_62.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
-            </div> 
-            
-            <div class="pro_item">
-            	<div class="pro_picture"><a href="bookDetail.jsp"><img src="img/book_62.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="bookDetail.jsp">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
-            </div> 
-            
-            <div class="pro_item">
-            	<div class="pro_picture"><a href="ipad.html"><img src="img/book_62.jpg" /></a></div>
-                <div class="pro_info">
-                	<div class="pro_up">
-                    	<div class="bookName"><a href="#">夜谭十记：让子弹飞</a></div>
-                    	<div class="author">作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>马识途</span> 著，译<br />出&nbsp;版&nbsp;社：<span>陕西师范大学出版社</span><br /></div>
-                    </div>
-                    <div class="pro_down">
-                    	<div class="pro_left">
-                    	出版时间：2010年10月<br />
-                        定&nbsp;&nbsp;&nbsp;&nbsp;价：<s>￥29.80</s>
-                        </div>
-                        <div class="pro_right">
-                        顾客评价：<span class="star">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>（<span>已有96人评价</span>）<br />
-                        会员价：<b><font>￥12.10</font></b><span class="user_price"></span> 京东价：<b>￥12.70</b>（43折)
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="book_btn">
-                    <a href="initCart.jsp" class="buy"></a><input type="button" value="收藏" class="favorite" />
-                    </div>
-                </div>            
-            </div> 
+
               
         </div><!--列表结束-->
         
