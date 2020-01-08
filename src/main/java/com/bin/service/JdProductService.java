@@ -20,4 +20,8 @@ public class JdProductService {
     public List<JdProduct> getProductListByPageInfo(ProductPage productPage){
        return jdProductDao.getProductListByPageInfo(productPage);
     }
+
+    public Integer getProductCountByCategoryId( int category_id){
+        return jdProductDao.getProductCountByCategoryId(category_id);
+    }
 }

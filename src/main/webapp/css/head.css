@@ -57,7 +57,7 @@ a:link,a:visited{color:#666666;text-decoration:none;}
 #advance{height:20px;float:left;color:#ffffff;margin-top:15px;}
 #mycart{background:url("../images/bg_booknav_0913.gif") no-repeat right -31px;height:36px;width:218px;float:right;line-height:28px;padding-top:11px;}
 #mycart li{float:left;}
-#cart_info{width:89px;padding:0px 25px 0px 34px;}
+#cart_info{width:150px;padding:0px 25px 0px 34px;}
 #left_corner{background:url("../images/bg_hotwords.jpg") no-repeat -11px -3px;height:28px;width:10px;overflow:hidden;float:left;}
 #left_corner{background:url("../images/bg_hotwords.jpg") no-repeat 0px -3px;height:28px;width:10px;overflow:hidden;float:right;}
 #hot_words{background:url("../images/bg_hotwords.jpg") repeat-x 0px -35px;height:28px;width:980px;overflow:hidden;text-align:center;}

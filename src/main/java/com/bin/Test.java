@@ -1,9 +1,5 @@
 package com.bin;
 
-import com.bin.bean.JdUser;
-import com.bin.service.JdUserService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.Serializable;
 

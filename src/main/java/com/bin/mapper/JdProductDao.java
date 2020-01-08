@@ -11,4 +11,7 @@ public interface JdProductDao {
             "jp.product_id=jcp.product_id and jcp.category_id= #{categoryId} " +
             " order by ${orderStd} ${orderType} limit #{startPos},#{pageSize}")
     List<JdProduct> getProductListByPageInfo(ProductPage productPage);
+
+    @Select("select count(product_id) from jd_category_product where category_id =#{category_id}")
+    Integer getProductCountByCategoryId(int categoryId);
 }
