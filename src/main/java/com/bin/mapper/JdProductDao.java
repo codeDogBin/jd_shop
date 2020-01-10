@@ -14,4 +14,7 @@ public interface JdProductDao {
 
     @Select("select count(product_id) from jd_category_product where category_id =#{category_id}")
     Integer getProductCountByCategoryId(int categoryId);
+
+    @Select("select * from jd_product where product_id= #{product_id}")
+    JdProduct getProductById(int product_id);
 }

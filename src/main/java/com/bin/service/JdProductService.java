@@ -24,4 +24,8 @@ public class JdProductService {
     public Integer getProductCountByCategoryId( int category_id){
         return jdProductDao.getProductCountByCategoryId(category_id);
     }
+
+    public JdProduct productByID(int product_id){
+        return jdProductDao.getProductById(product_id);
+    }
 }

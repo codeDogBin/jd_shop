@@ -3,7 +3,12 @@ package com.bin.bean;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
+/**
+ * 功能描述 用来分页
+ * @Author bin
+ * @param null 
+ * @return         
+ */
 @Setter
 @Getter
 @ToString

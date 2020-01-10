@@ -214,7 +214,7 @@
                     </div>
                     <div class="clear"></div>
                     <div class="book_btn">
-                    <a href="initCart" class="buy"></a><input type="button" value="收藏" class="favorite" />
+                    <a href="initCart?productId=${product.productId}" class="buy"></a><input type="button" value="收藏" class="favorite" />
                     </div>
                 </div>
             </div>

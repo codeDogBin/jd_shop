@@ -33,7 +33,7 @@ public class JdUserController {
     }
  /*
   * 功能描述 login
-  * @Author Libinz
+  * @Author bin
   * @param loginName
   * @param password 
   * @return java.lang.String        

@@ -1,4 +1,4 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,8 +22,8 @@
 			<div class="corner br"></div>
 			<div class="success">
             	<b>&nbsp;</b>
-                <a href="myCart.jsp" class="btn_pay" ></a>
-                <a href="book_list.jsp" class="btn_continue"></a>
+                <a href="myCart" class="btn_pay" ></a>
+                <a href="book_list" class="btn_continue"></a>
             </div>
 			<div id="cart_yb"></div>
 		</div>
@@ -36,7 +36,7 @@
 			<div class="similar_data">
 			     <ul>
                  	<li>
-                    	<div class="s_img"><a href="#"><img src="img/cart_01.jpg" /></div>
+						<div class="s_img"> <a href="#"><img src="img/cart_01.jpg" /></a> </div>
                         <div class="s_info">
                         	<p>SAP销售与分销实施指南</p>
                             <b>￥59.30</b>
@@ -120,10 +120,10 @@
                 <div class="clear"></div>
                 <p>您购物车中的其它商品</p>
                 <div class="cart_total">
-                	共<b>4</b>件商品<br />
-					金额总计：<b>￥213.60</b>
+                	共<b>${sumCount}</b>件商品<br />
+					金额总计：<b>${sumPrice}</b>
                 </div>
-                <div><a href="#" class="btn_pay"></a></div>
+                <div><a href="myCart" class="btn_pay"></a></div>
 			</div>
          </div>   
     </div>

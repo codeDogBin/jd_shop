@@ -1,9 +1,56 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/myCart_style.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery.js"></script>
+	<script>
+		function updateItemCount(productId,type,ele) {
+			var count = $(ele).parent().find("input").val();
+			if(type =="sub" && count == 1){
+				alert("不能在减少了");
+				return;
+			}
+			if(type == "add" && count == 99){
+				alert("不能在增加了");
+				return;
+			}
+			$.ajax({
+				url:"updateCartItemCountAJAX.do",
+				type:"post",
+				success:function (res) {
+					$("#cartBottom_price").html("￥"+res.sumPrice);
+					$(ele).parent().find("input").val(res.count);
+				},
+				data:{productId:productId,type:type},
+			});
+		}
+		function delCartItem(productId,ele) {
+			//发送ajax
+			$.ajax({
+				url:"deleteCartItemAjax.do",
+				type:"post",
+				success:function (res){
+					if(res.status){
+					var $tr_data =$(ele).parent();
+					//把tr_data中的数据重新处理
+					var  del_tr_data='<tr> <td style="width: 70px;">'+$tr_data.find("td:eq(0)").html()+'</td> <td style="text-align: left;">' +
+							'<a href="#">'+$tr_data.find("td:eq(1)").html()+'</a>' +
+							'</td> <td style="width: 150px;"><span class="price">'+$tr_data.find("td:eq(2)").html()+'</span></td>' +
+							' <td style="width: 100px;">1</td><td style="width: 100px;"><a href="#">重新购买</a> |' +
+							' <a href="#">收藏</a></td> </tr>';
+					$(ele).parent().remove();
+					$("#divDeledSku table").append($(del_tr_data));
+
+						$("#cartBottom_price").html(res.sumPrice);
+					}
+				},
+				data:{productId:productId},
+			})
+		}
+	</script>
 <title>无标题文档</title>
 </head>
 <body>
@@ -37,28 +84,30 @@
 					<td>商品数量</td>
 					<td>删除商品</td>
 				</tr>
-				<tr>
-					<td>344159</td>
+				<c:forEach items="${sessionScope.cart}" var="item">
+				<tr >
+					<td>${item.productId}</td>
 					<td id="align_Left">
-						<div id="c_img"><a href="ipad.jsp"><img src="img/ln_cart1.jpg"></a></div>
-						<div id="c_info"><span><a href="#">惠普（HP） CB350 数码相机（蓝色订制版</a></span><br><span class="redColor">[赠品]</span>相机包 ×<span class="redColor">1</span></div>
+						<div id="c_img"  ><a href="ipad.jsp"><img style="height:60px" src=${item.picture}></a></div>
+						<div id="c_info"><span><a href="#">${item.name}</a></span><br><span class="redColor">[赠品]</span>相机包 ×<span class="redColor">1</span></div>
 					</td>
-					<td class="price">￥449.00</td>
+					<td class="price">${item.lowerPrice}</td>
 					<td>￥0.00</td>
 					<td>0</td>
 					<td width="70">
 						<div id="eqNum">
 							<ul>
-								<li class="Img"><img src="img/bag_close.gif"/></li>
-								<li><input type="text"  value="2" id="num" /></li>
-								<li class="Img"><img src="img/bag_open.gif"/></li>
+								<li class="Img" onclick="updateItemCount(${item.productId},'sub',this)"><img src="img/bag_close.gif"/></li>
+								<li><input type="text"  value="${item.productCount}" id="num" /></li>
+								<li class="Img" onclick="updateItemCount(${item.productId},'add',this)"><img src="img/bag_open.gif"/></li>
 							</ul>
 						</div>
 					</td>
-					<td>删除</td>
+					<td onclick="delCartItem(${item.productId},this)" >删除</td>
 				</tr>
+				</c:forEach>
 				<tr>
-					<td colspan="7" class="align_Right" height="40"><b>商品总金额(不含运费)：<span id="cartBottom_price" class="price">￥898.00</span>元</b></td>
+					<td colspan="7" class="align_Right" height="40"><b>商品总金额(不含运费)：<span id="cartBottom_price" class="price">￥${sumPrice}</span>元</b></td>
 				</tr>
 			</table>
 			<div id="cart_op">
@@ -66,7 +115,7 @@
 					<li id="li1">寄存购物车</li>
 					<li id="li2">清空购物车</li>
 					<li id="li3">凑单商品</li>
-					<li id="li4"><a href="book_list.jsp"><img src="img/btn0603_1.jpg"/></a><a href="orderInfoSure.jsp"><img src="img/btn0603_2.jpg"/></a></li>
+					<li id="li4"><a href="book_list.jsp"><img src="img/btn0603_1.jpg"/></a><a href="orderInfoSure"><img src="img/btn0603_2.jpg"/></a></li>
 				</ul>
 			</div>
 			

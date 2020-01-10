@@ -5,7 +5,9 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * 描述产品的类型的类
+ * 功能描述 产品分类
+ * @Author bin
+ * @return
  */
 @Setter
 @Getter

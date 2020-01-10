@@ -6,6 +6,11 @@ import lombok.ToString;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+/**
+ * 功能描述 用户
+ * @Author bin
+ * @return
+ */
 @Getter
 @Setter
 @ToString

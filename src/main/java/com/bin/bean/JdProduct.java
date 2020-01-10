@@ -1,11 +1,17 @@
 package com.bin.bean;
 
+import jdk.nashorn.internal.scripts.JD;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+/**
+ * 功能描述 商品
+ * @Author bin
+ * @return
+ */
 @Setter
 @Getter
 @ToString
@@ -37,4 +43,17 @@ public class JdProduct implements Serializable {
     private Integer printInt;
     private String paperType;
     private String printFrequency;
+
+    public JdCartItem converToCartIter(){
+        JdCartItem item = new JdCartItem();
+        item.setProductId(productId);
+        item.setPicture(picture);
+        item.setName(name);
+        item.setLowerPrice(lowerPrice);
+        item.setProductCount(1);
+        item.setScore(0);
+        item.setBackMoney(0.0);
+        return item;
+    }
+
 }
